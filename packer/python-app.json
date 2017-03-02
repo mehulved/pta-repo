@@ -1,0 +1,18 @@
+{
+  "builders": [{
+    "type": "googlecompute",
+    "account_file": "../rootconf_account.json",
+    "project_id": "rootconf-mehul",
+    "source_image": "debian-8-jessie-v20170227",
+    "ssh_username": "admin",
+    "zone": "asia-east1-a",
+    "image_description": "Python Web App",
+    "image_name": "python-app",
+    "image_family": "debian-8",
+    "machine_type": "n1-standard-1"
+  }],
+  "provisioners": [{
+    "script": "scripts/python.sh",
+    "type": "shell"
+  }] 
+}
