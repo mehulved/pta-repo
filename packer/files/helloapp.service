@@ -1,0 +1,17 @@
+[Unit]
+Description=Hello World App
+Requires=helloapp.socket
+After=network.target
+
+[Service]
+PIDFile=/run/helloapp/pid
+User=<PYTHON_APP_USER>
+Group=<PYTHON_APP_USER>
+WorkingDirectory=<PYTHON_APP_DIR>
+ExecStart=<PYTHON_APP_DIR>/venv/bin/gunicorn --pid /run/helloapp/pid hello:api
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s TERM $MAINPID
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

@@ -7,12 +7,31 @@
     "ssh_username": "admin",
     "zone": "asia-east1-a",
     "image_description": "Python Web App",
-    "image_name": "python-app",
+    "image_name": "python-app-{{timestamp}}",
     "image_family": "debian-8",
     "machine_type": "n1-standard-1"
   }],
   "provisioners": [{
+    "source": "files/helloapp.service",
+    "destination": "/tmp/helloapp.service",
+    "type": "file"
+  },
+  {
+    "source": "files/helloapp.socket",
+    "destination": "/tmp/helloapp.socket",
+    "type": "file"
+  },
+  {
+    "source": "files/helloapp.tmpfiles.conf",
+    "destination": "/tmp/helloapp.tmpfiles.conf",
+    "type": "file"
+  },
+  {
     "script": "scripts/python.sh",
+    "type": "shell"
+  },
+  {
+    "script": "scripts/nginx.sh",
     "type": "shell"
   }] 
 }
