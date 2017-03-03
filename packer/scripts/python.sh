@@ -42,7 +42,7 @@ sudo sed -i "s*<PYTHON_APP_DIR>*$PYTHON_APP_DIR*g" /etc/systemd/system/helloapp.
 sudo sed -i "s/<PYTHON_APP_USER>/$PYTHON_APP_USER/g" /etc/systemd/system/helloapp.*
 sudo sed -i "s/<PYTHON_APP_USER>/$PYTHON_APP_USER/g" /usr/lib/tmpfiles.d/helloapp.conf
 set -x
-sudo -u $PYTHON_APP_USER PATH=$PYTHON_APP_DIR/venv/bin/:$PATH VIRTUAL_ENV=$PYTHON_APP_DIR/venv/ $PYTHON_APP_DIR/venv/bin/pip install -vvv -r $PYTHON_APP_DIR/requirements.txt
+sudo -u $PYTHON_APP_USER PATH=$PYTHON_APP_DIR/venv/bin/:$PATH VIRTUAL_ENV=$PYTHON_APP_DIR/venv/ $PYTHON_APP_DIR/venv/bin/pip install -r $PYTHON_APP_DIR/requirements.txt
 set +x
 sudo systemctl enable helloapp.socket
 sudo systemctl enable helloapp.service
