@@ -31,6 +31,11 @@
     "type": "shell"
   },
   {
+    "source": "files/helloapp.nginx.conf",
+    "destination": "/tmp/helloapp.nginx.conf",
+    "type": "file"
+  },
+  {
     "script": "scripts/nginx.sh",
     "type": "shell"
   }] 
