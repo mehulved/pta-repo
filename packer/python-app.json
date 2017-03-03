@@ -7,7 +7,7 @@
     "ssh_username": "admin",
     "zone": "asia-east1-a",
     "image_description": "Python Web App",
-    "image_name": "python-app-{{timestamp}}",
+    "image_name": "pythonapp",
     "image_family": "debian-8",
     "machine_type": "n1-standard-1"
   }],
