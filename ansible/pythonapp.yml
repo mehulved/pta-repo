@@ -1,0 +1,9 @@
+---
+  - name: Setup the python app
+    hosts: tag_python
+    user: rootconf
+    vars:
+      ansible_ssh_private_key_file: ../files/ssh-keys/rootconf_ed25519
+    tasks:
+      - set_fact:
+          fact_by: "ansible"
