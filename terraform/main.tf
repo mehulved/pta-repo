@@ -33,6 +33,10 @@ resource "google_compute_instance" "pythonapp" {
                 }
         }
 
+	metadata {
+		ssh-keys = "rootconf:${file("${var.public_key_path}")}"
+	}
+
         service_account {
         scopes = ["compute-rw"]
         }
@@ -48,4 +52,16 @@ resource "google_compute_firewall" "allow-http" {
         }
 
         target_tags = ["http-server"]
+}
+
+resource "google_compute_firewall" "allow-ssh" {
+        name = "allow-ssh"
+        network = "${google_compute_network.pythonapp.name}"
+
+        allow {
+                protocol = "tcp"
+                ports    = ["22"]
+        }
+
+        target_tags = ["python"]
 }

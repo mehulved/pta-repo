@@ -16,3 +16,6 @@ variable "project_name" {
   default = "rootconf-mehul"
 }
 
+variable "public_key_path" {
+  default = "../files/ssh-keys/rootconf_ed25519.pub"
+}
